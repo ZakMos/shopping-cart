@@ -8,9 +8,9 @@ export const removeItem = (product) => ({
    product
 });
 
-export const removeAllItems = () => ({
+export const removeAllItems = (product) => ({
 	type: 'REMOVE_ALL_FROM_CART',
-
+	product
 });
 
 

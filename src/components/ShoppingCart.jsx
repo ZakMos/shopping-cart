@@ -11,11 +11,11 @@ const ShoppingCart = ({carts, removeItem, checkOut}) => (
     {carts.map(cart => (
       <li key={cart.id}>
 				<p>
-					{cart.title} {cart.price}, | X{cart.quantity}
+					{cart.title} ${cart.price}, | X{cart.quantity}
         </p>
 
 				<button
-						onClick={() => removeItem(carts)}
+						onClick={() => removeItem(cart)}
 					>Remove One
 				</button>
 

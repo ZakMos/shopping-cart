@@ -9,7 +9,7 @@ export function appReducer(state , action) {
 		case 'ADDTOCART':
 		const  {id, price, title} = product || {};
 		const	inventory = product.inventory;
-	 if (inventory <=0) return state;
+	 	if (inventory <=0) return state;
 
 
 		return {
@@ -35,6 +35,8 @@ export function appReducer(state , action) {
 
 
 		case 'REMOVE_ITEM_FROM_CART':
+		// let quantity = products.quantity;
+
 		return {
 			...state,
 			products: {
@@ -47,12 +49,9 @@ export function appReducer(state , action) {
 			cart : {
 				...cart,
 				[id]:{
-	
 					quantity: cartItem.quantity - 1
+				}
 			}
-
-		}
-
 		}
 
 

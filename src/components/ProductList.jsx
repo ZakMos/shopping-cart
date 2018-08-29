@@ -15,7 +15,6 @@ const ProductList = ({items, addToCart}) => (
         <button
           onClick={() => addToCart(item)}
 					disabled={item.inventory > 0 ? '' : 'disabled'}
-
         >{item.inventory > 0 ? 'Add To Cart' : 'Sold Out'}
         </button>
       </li>

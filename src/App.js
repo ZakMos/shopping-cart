@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './shopingCart.png';
 import './App.css';
 import ProductList from './components/ProductList';
 import ShoppingCart from './components/ShoppingCart';
