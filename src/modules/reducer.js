@@ -54,14 +54,14 @@ export function appReducer(state , action) {
 
 		case 'REMOVE_ALL_FROM_CART':
 			return {
-				cart: newCart ? quantity : {},
 				products: {
 					...products,
 					[id]:{
 						...products[id],
 						inventory: products[id].inventory + quantity
 					}
-				}
+				},
+				cart: newCart ? quantity : {}
 			};
 
 		case 'CHECKOUT':
