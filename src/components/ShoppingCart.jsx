@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { checkOut, removeItem } from '../modules/actions';
+import { removeItem, removeAllItems, checkOut } from '../modules/actions';
 
 
 
-const ShoppingCart = ({carts, removeItem, checkOut}) => (
+const ShoppingCart = ({carts, removeItem, removeAllItems, checkOut}) => (
 <div>
 <h1>Your Cart</h1>
 	<ul>
@@ -13,22 +13,20 @@ const ShoppingCart = ({carts, removeItem, checkOut}) => (
 				<p>
 					{cart.title} ${cart.price}, | X{cart.quantity}
         </p>
-
 				<button
 						onClick={() => removeItem(cart)}
 					>Remove One
 				</button>
-
-				<button>
-					Remove All
+				<button
+						onClick={() => removeAllItems(cart)}
+					>Remove All
 				</button>
 
       </li>
     ))}
 		 <p>Total: ${carts.reduce((total, cart) => parseFloat((total + cart.price * cart.quantity).toFixed(2)), 0)}</p>
 		<button
-			onClick={() => checkOut(carts)  }
-
+			onClick={() => checkOut(carts)}
 		>Checkout
 		</button>
   </ul>
@@ -41,7 +39,8 @@ const mapStoreProps = ({cart}) => ({
 
 const mapActionsProps = {
 	checkOut: checkOut,
-	removeItem: removeItem
+	removeItem: removeItem,
+	removeAllItems: removeAllItems
 };
 
 export default connect(
